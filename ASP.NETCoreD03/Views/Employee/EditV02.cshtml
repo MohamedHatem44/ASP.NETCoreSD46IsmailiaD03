@@ -1,0 +1,53 @@
+﻿@model EmployeeEditVM
+
+<div class="d-flex justify-content-center">
+    <h1 class="text-success">Edit Employee</h1>
+</div>
+
+
+<br />
+<hr />
+<br />
+
+
+<form action="~/Employee/EditV02" method="post">
+
+    <div class="mb-3 form-group">
+        <label for="Id" class="form-label">Id</label>
+        <input type="number" class="form-control" id="Id" name="Id" required value="@Model.Id" readonly />
+    </div>
+
+    @* <input type="number" class="form-control" id="Id" name="Id" required value="@Model.Id" hidden /> *@
+
+    <div class="mb-3 form-group">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" required value="@Model.Name" />
+    </div>
+
+    <div class="mb-3 form-group">
+        <label for="Age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="Age" name="Age" required value="@Model.Age" />
+    </div>
+
+    <div class="mb-3 form-group">
+        <label for="Salary" class="form-label">Salary</label>
+        <input type="number" class="form-control" id="Salary" name="Salary" required value="@Model.Salary" />
+    </div>
+
+    <div class="mb-3 form-group">
+        <label for="DepartmentId" class="form-label">Department</label>
+        <select class="form-select" id="DepartmentId" name="DepartmentId" required>
+            <option value="@Model.DepartmentId">@Model.DepartmentName</option>
+            @foreach (var department in Model.Departments)
+            {
+                <option value="@department.Value">@department.Text</option>
+            }
+        </select>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3">
+        <input type="submit" class="btn btn-success" value="Save" />
+        <a href="~/Employee/IndexV02" class="btn btn-secondary">Cancel</a>
+    </div>
+
+</form>

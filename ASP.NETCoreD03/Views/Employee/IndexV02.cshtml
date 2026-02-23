@@ -1,0 +1,40 @@
+﻿@model List<EmployeeReadVM>
+
+<div class="d-flex justify-content-center">
+    <h2 class="text-success">Employees Portal</h2>
+</div>
+
+<br />
+<hr />
+<br />
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Department</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <th scope="row">@employee.Name</th>
+                <th scope="row">@employee.Age</th>
+                <th scope="row">@employee.Salary</th>
+                <th scope="row">@employee.Department</th>
+                <th scope="row">
+                    <a href="~/Employee/DetailsV01/@employee.Id" class="btn btn-primary">Details</a>
+                    <a href="~/Employee/EditV02/@employee.Id" class="btn btn-outline-secondary">Edit</a>
+                    <a href="~/Employee/Delete/@employee.Id" class="btn btn-outline-danger">Delete</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <a href="~/Employee/CreateV02" class="btn btn-success">Create New Employee</a>
+    </tfoot>
+</table>
