@@ -344,7 +344,6 @@ Server=YOUR_SERVER;Database=SDASPNETCore;
 2️⃣ Apply migrations:
 
 ```bash
-Add-Migration InitialCreate
 Update-Database
 ```
 
